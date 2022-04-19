@@ -1,1 +1,4 @@
 .env
+html
+!html/wp-content/plugins/custom
+!html/wp-content/themes/custom
