@@ -20,7 +20,7 @@ This repository will demonstrate using a development container for building a cu
 
 ## Using the Debugger in the Container
 - Install the [Xdebug helper](https://chrome.google.com/webstore/detail/xdebug-helper/eadndfjplgieldjbigjakmdgkmoaaaoc?hl=en) browser extension.
-- Start the `Listen for XDebug` launch configuration.
+- Start the `Listen for XDebug` launch configuration.  
 ![](./docs/xdebug.png)
 - Set a breakpoint in your source code.
 - Set the PHP page in your browser to debug using the `Xdebug helper` extension.
