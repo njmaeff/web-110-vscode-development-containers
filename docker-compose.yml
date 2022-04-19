@@ -1,0 +1,45 @@
+version: "3.7"
+
+services:
+  db:
+    image: mysql:5.7
+    restart: always
+    volumes:
+      - db_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${WORDPRESS_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+
+  wordpress:
+    depends_on:
+      - db
+    build:
+      context: .
+      dockerfile: .docker/Dockerfile
+    command: /bin/sh -c 'while sleep 1000; do :; done'
+    volumes:
+      - ./:/var/www
+      #      you could map custom plugins and themes like so.
+      - ./html/wp-content/plugins/custom:/var/www/html/wp-content/plugins/custom
+      - ./html/wp-content/themes/custom:/var/www/html/wp-content/themes/custom
+    ports:
+      - "8000:80"
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: ${MYSQL_USER}
+      WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD}
+      WORDPRESS_DB_NAME: ${WORDPRESS_DATABASE}
+
+  pma:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8080:80"
+    links:
+      - db
+    environment:
+      - PMA_HOST=db
+
+volumes:
+  db_data: {}

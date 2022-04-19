@@ -1,0 +1,12 @@
+{
+  "name": "Wordpress Docker",
+  "dockerComposeFile": "../docker-compose.yml",
+  "service": "wordpress",
+  "workspaceFolder": "/var/www",
+  "remoteUser": "vscode",
+  "shutdownAction": "stopCompose",
+  "extensions": [
+    "bmewburn.vscode-intelephense-client",
+    "xdebug.php-debug"
+  ]
+}

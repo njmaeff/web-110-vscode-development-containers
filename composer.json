@@ -1,0 +1,17 @@
+{
+    "name": "web-110/docker-wordpress",
+    "description": "Wordpress VSCode devcontainer.",
+    "type": "project",
+    "require": {},
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "*",
+        "symplify/coding-standard": "*",
+        "phpcompatibility/php-compatibility": "*",
+        "wp-coding-standards/wpcs": "*"
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    }
+}
